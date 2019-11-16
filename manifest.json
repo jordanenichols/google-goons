@@ -3,8 +3,11 @@
     "version": "0.01",
     "description": "To be decided",
     "background": {
-	"scripts": ["background.js"],
+	"scripts": ["background.js"], 
 	"persistent": false
+    },
+    "page_action": {
+        "default_popup": "popup.html"
     },
     "manifest_version": 2
 }
