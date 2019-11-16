@@ -1,0 +1,10 @@
+{
+    "name": "Google-Goons (TEMPORARY)",
+    "version": "0.01",
+    "description": "To be decided",
+    "background": {
+	"scripts": ["background.js"],
+	"persistent": false
+    },
+    "manifest_version": 2
+}
