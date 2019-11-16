@@ -2,6 +2,7 @@
     "name": "Google-Goons (TEMPORARY)",
     "version": "0.01",
     "description": "To be decided",
+    "permissions": ["declarativeContent", "storage"],
     "background": {
 	"scripts": ["background.js"], 
 	"persistent": false
