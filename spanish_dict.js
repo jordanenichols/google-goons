@@ -1,15 +1,36 @@
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_using_XPath_in_JavaScript
+function evaluateXPath(aNode, aExpr) {
+  var xpe = new XPathEvaluator();
+  var nsResolver = xpe.createNSResolver(aNode.ownerDocument == null ?
+    aNode.documentElement : aNode.ownerDocument.documentElement);
+  var result = xpe.evaluate(aExpr, aNode, nsResolver, 0, null);
+  var found = [];
+  var res;
+  while (res = result.iterateNext())
+    found.push(res);
+  return found;
+}
 
-var req = new XMLHttpRequest();
+var xmlCont = chrome.runtime.getURL("/thirdParty/spa-eng.tei"); //this returns the FULL_PATH of the .xml file [NOT THE XML NODES]
+            console.log(xmlCont) //You can see it here
 
-req.open("GET", "chrome://yourextension/content/peopleDB.xml", false); 
-req.send(null);
+                    $.ajax({                    
+                          type: "GET" , 
+                          url: xmlCont,//Place that FULL_PATH here 
+                          dataType: "xml" , //This too is important 
 
-var xmlDoc = req.responseXML;		
+                         success: function(xml) { 
 
-var nsResolver = xmlDoc.createNSResolver( xmlDoc.ownerDocument == null ? xmlDoc.documentElement : xmlDoc.ownerDocument.documentElement);
+                          console.log(xml)// see the ajax results if your curious
 
-var personIterator = xmlDoc.evaluate('//person', xmlDoc, nsResolver, XPathResult.ANY_TYPE, null );
+                        //var xmlDoc = $.parseXML( xml );//NOT NEED FOR THIS
 
-console.log(json);
+                        //console.log(xmlDoc);// if you parseXML it returns null
 
+                        var title = $(xml).find('value').text(); //Show the text between the <title> tags
+                        console.log($(xml));
+						//var entry = title.getElementsByTagName('entry').text(); //Show the text between the <title> tags
+                        console.log(typeof title);
+						
+
+                    }    
+                        });

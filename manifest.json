@@ -7,6 +7,10 @@
 	"scripts": ["background.js", "thirdParty/jquery-3.4.1.min.js", "spanish_dict.js"], 
 	"persistent": false
     },
+	"web_accessible_resources": [
+		"thirdParty/*.tei"
+	],
+		
     "page_action": {
         "default_popup": "popup.html",
         "default_icon":{
