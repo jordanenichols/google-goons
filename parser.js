@@ -1,6 +1,6 @@
+import {getTranslation} from "./spanish_dict.js";
 //TODO: getTheMeaningOfTheWord should return the meaning of the word
 //hover should make a div that displays everything
-
 window.addEventListener("load", function() {
     let allPs = document.querySelectorAll("p");
     for (let i = 0; i < allPs.length; i++) {
@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
         let currentList = allPs[i].innerHTML.split(" ");
         allPs[i].innerHTML = "";
         for (let j = 0; j < currentList.length; j++) {
-            let content = "Word: " +  currentList[j];  
+            let content = "Word: " +  getTranslation(currentList[j]);  
             allPs[i].innerHTML += "<span data-html='true' class='superhover' data-tooltip data-original-title='"+ content +"'>" + currentList[j] + "</span> ";
         }
     }

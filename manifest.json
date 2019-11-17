@@ -4,7 +4,7 @@
     "description": "To be decided",
     "permissions": ["declarativeContent", "storage"],
     "background": {
-	"scripts": ["background.js"], 
+	"scripts": ["spanish_dict.js", "background.js", "parser.js", "thirdParty/jquery"], 
 	"persistent": false
     },
     "page_action": {
