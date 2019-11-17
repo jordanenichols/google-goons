@@ -17,7 +17,7 @@ var xmlCont = chrome.runtime.getURL("/thirdParty/spa-eng.tei"); //this returns t
 
 var input = "INPUT YOUR SHIT HERE YOU APES";
 
-function getTranslation(input){
+export function getTranslation(input){
 
 $.ajax({                    
       type: "GET" , 
