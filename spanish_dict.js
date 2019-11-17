@@ -26,8 +26,27 @@ var xmlCont = chrome.runtime.getURL("/thirdParty/spa-eng.tei"); //this returns t
 
                         //console.log(xmlDoc);// if you parseXML it returns null
 
-                        var title = $(xml).find('value').text(); //Show the text between the <title> tags
-                        console.log($(xml));
+                        var entries = $(xml).find('body').find('entry'); //Show the text between the <title> tags
+
+                         // for (i = 0; i < spanish.length; i++){
+                         //    console.log(spanish[i].textContent)
+                         // }
+                         for (i = 0; i < entries.length; i++){
+                            var entry = entries[i];
+                            var spanish = entry.getElementsByTagName("form")[0].getElementsByTagName("orth")[0].textContent; 
+                            var englishes = entry.getElementsByTagName("sense"); 
+                            var english_list = []
+                             for (j = 0; j < englishes.length; j++) {
+                                 var english = englishes[j].getElementsByTagName("cit")[0].getElementsByTagName("quote")[0].textContent;
+                                 english_list.push(english);
+                             }
+
+                             if (spanish == "Europa"){
+                                console.log(spanish + " " + english_list.toString());
+                             }
+                         }
+
+
 						//var entry = title.getElementsByTagName('entry').text(); //Show the text between the <title> tags
                         console.log(typeof title);
 						
