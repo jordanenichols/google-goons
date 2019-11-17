@@ -10,10 +10,12 @@ function evaluateXPath(aNode, aExpr) {
   return found;
 }
      
-var input = "INPUT YOUR SHIT HERE YOU APES";
+
 
 var xmlCont = chrome.runtime.getURL("/thirdParty/spa-eng.tei"); //this returns the FULL_PATH of the .xml file [NOT THE XML NODES]
 // console.log(xmlCont) //You can see it here
+
+var input = "INPUT YOUR SHIT HERE YOU APES";
 
 function getTranslation(input){
 
