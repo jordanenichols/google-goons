@@ -2,11 +2,13 @@
     "name": "Google-Goons (TEMPORARY)",
     "version": "0.01",
     "description": "To be decided",
-    "permissions": ["declarativeContent", "storage"],
     "background": {
-	"scripts": ["spanish_dict.js", "background.js", "parser.js", "thirdParty/jquery"], 
+	"scripts": ["thirdParty/jquery-3.4.1.min.js",  "background.js"], 
 	"persistent": false
     },
+    "web_accessible_resources": [
+        "thirdParty/*.tei"
+    ],
     "page_action": {
         "default_popup": "popup.html",
         "default_icon":{
@@ -22,5 +24,13 @@
         "48": "get_started48.png",
         "128": "get_started128.png"
     },
+    "permissions": [
+        "https://*/*",
+        "http://*/*",
+        "tabs",
+        "declarativeContent",
+         "storage"
+        
+      ],
     "manifest_version": 2
 }
